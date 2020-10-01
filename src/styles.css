@@ -1,11 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
-/*.btn{*/
-/*  width: 60px;*/
-/*  height: 60px;*/
-/*  margin: 2px;*/
-/*}*/
 @font-face {
   font-family: "Digital-7 Mono";
   font-weight: normal;
@@ -13,6 +8,12 @@
 
   src:url("./assets/fonts/digital-7_mono.woff2") format("woff2"),
   url("./assets/fonts/digital-7_mono.woff") format("woff");
+}
+.green{
+  background: green;
+}
+.red{
+  background: red;
 }
 
 :root {
@@ -25,8 +26,9 @@
 
   height: 100vh;
   margin: 0;
-
-  background-color: #333;
+}
+html{
+  background-color: black;
 }
 
 .calculator-body {
@@ -162,3 +164,6 @@
     margin-top: calc( 100vh - 3vmin  - 1vmin - ((3 + 1) * var(--basic-size)))
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

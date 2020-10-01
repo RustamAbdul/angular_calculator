@@ -1,0 +1,46 @@
+<main class="calculator-body">
+  <div class="screen">
+    <div class="row1">
+      <span class="last-calculation">{{firstValue}}</span>&nbsp;<span class="last-operator">{{operation}}</span>
+    </div>
+    <div class="row2">{{inputValue}}</div>
+  </div>
+  <div class="keyboard">
+    <div class="row">
+      <mat-button-toggle-group >
+        <mat-button-toggle class="key key-operator type-calculator" (click)="progCal()" [ngClass]="{'green': programmer == false,  'red': programmer == true}">Default</mat-button-toggle>
+        <mat-button-toggle class="key key-operator type-calculator" (click)="progCal()" [ngClass]="{'green': programmer == true, 'red': programmer == false}">Programmer</mat-button-toggle>
+      </mat-button-toggle-group>
+    </div>
+    <div class="row" *ngIf="programmer">
+      <button type="button" class="key key-operator" value="2" (click)="setOperation($event)">X<sup>2</sup></button>
+      <button type="button" class="key key-operator" value="" (click)="setOperation($event)">X<sup>y</sup></button>
+      <button type="button" class="key key-operator" value="sqrt" (click)="setOperation($event)">√x</button>
+      <button type="button" class="key key-operator" value="C" (click)="setOperation($event)">C</button>
+    </div>
+    <div class="row">
+      <button type="button" class="key" value="7" (click)="setValue($event)">7</button>
+      <button type="button" class="key" value="8" (click)="setValue($event)">8</button>
+      <button type="button" class="key" value="9" (click)="setValue($event)">9</button>
+      <button type="button" class="key key-operator" value="/" (click)="setOperation($event)">/</button>
+    </div>
+    <div class="row">
+      <button type="button" class="key" value="4" (click)="setValue($event)">4</button>
+      <button type="button" class="key" value="5" (click)="setValue($event)">5</button>
+      <button type="button" class="key" value="6" (click)="setValue($event)">6</button>
+      <button type="button" class="key key-operator" value="*" (click)="setOperation($event)">*</button>
+    </div>
+    <div class="row">
+      <button type="button" class="key" value="1" (click)="setValue($event)">1</button>
+      <button type="button" class="key" value="2" (click)="setValue($event)">2</button>
+      <button type="button" class="key" value="3" (click)="setValue($event)">3</button>
+      <button type="button" class="key key-operator" value="-" (click)="setOperation($event)">-</button>
+    </div>
+    <div role="group" class="row">
+      <button type="button" class="key" value="0"(click)="setValue($event)">0</button>
+      <button type="button" class="key" value="." (click)="setValue($event)">.</button>
+      <button type="button" class="key key-equal" value="=" (click)="getResult()">=</button>
+      <button type="button" class="key key-operator" value="+" (click)="setOperation($event)">+</button>
+    </div>
+  </div>
+</main>
