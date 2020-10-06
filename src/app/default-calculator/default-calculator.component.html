@@ -13,10 +13,10 @@
       </mat-button-toggle-group>
     </div>
     <div class="row" *ngIf="programmer">
-      <button type="button" class="key key-operator" value="2" (click)="setOperation($event)">X<sup>2</sup></button>
-      <button type="button" class="key key-operator" value="" (click)="setOperation($event)">X<sup>y</sup></button>
+      <button type="button" class="key key-operator" value="**" (click)="setOperation($event)">X<sup>2</sup></button>
+      <button type="button" class="key key-operator" value="**" (click)="setOperation($event)">X<sup>y</sup></button>
       <button type="button" class="key key-operator" value="sqrt" (click)="setOperation($event)">√x</button>
-      <button type="button" class="key key-operator" value="C" (click)="setOperation($event)">C</button>
+      <button type="button" class="key key-operator" (click)="clear()">C</button>
     </div>
     <div class="row">
       <button type="button" class="key" value="7" (click)="setValue($event)">7</button>

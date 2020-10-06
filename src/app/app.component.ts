@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
-import { CalculateService } from './calculate.service';
 import {NgModel} from '@angular/forms';
+// @ts-ignore
+import { ItemsState } from './items-state'
+import {NEVER, Observable, of} from 'rxjs'
+import {startWith} from 'rxjs/operators'
 
 @Component({
   selector: 'app-root',
@@ -9,10 +12,28 @@ import {NgModel} from '@angular/forms';
 })
 export class AppComponent {
   title = 'calculator';
+  items = [1,2,3,4,5,6]
 
   public inputValue: any = '';
   public operation: any = '';
   public firstValue: any = '';
+
+  private defaultState: ItemsState = {
+    items: [],
+    loading: false
+  }
+
+  state$: Observable<ItemsState> =
+    NEVER.pipe(
+      startWith(this.defaultState)
+    );
+  trackByFn(index, item) {
+    return item.id; // уникальный id, соответствующий элементу
+  }
+
+  itemChange(input: any){
+    this.items.push(input.target.value)
+  }
 
   // tslint:disable-next-line:typedef
   setValue(inputKey: any){
