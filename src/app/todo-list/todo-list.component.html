@@ -1,0 +1,13 @@
+<div class="search container">
+  <form class="form-inline my-2 my-lg-0">
+    <input class="form-control" [(ngModel)]="task" name="task" placeholder="Task" type="text" aria-label="Add">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="addTask()">Add task</button>
+  </form>
+</div>
+<div class="container my-2" *ngFor="let _task of tasks">
+  <app-todo [task]="_task" (removeTask)="removeTask($event)"></app-todo>
+</div>
+<div class="container" *ngIf="tasks.length > 0">
+  <p>Tasks count {{tasks.length}}</p>
+  <p>Tasks left do {{getTrueCount(tasks)}}</p>
+</div>

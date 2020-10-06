@@ -1,0 +1,9 @@
+<form class="form-inline my-2 my-lg-0">
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" value="{{task.value}}">
+    <div class="input-group-append form-inline">
+      <button class="btn my-sm-0" type="button" [ngClass]="task.done===false ? 'btn-danger' : 'btn-primary'" (click)="doTask(task)">Checked</button>
+      <button class="btn btn-danger my-sm-0" type="button" (click)="callParentRemoveTask(task)">Remove</button>
+    </div>
+  </div>
+</form>
